@@ -8,7 +8,7 @@ node {
    
    // -- Configura variables
    echo 'Configurando variables'
-   def mvnHome = tool 'M3'
+   def mvnHome = tool 'M3' //--mismo nombre que puesto en la configuracion de jenkins
    env.PATH = "${mvnHome}/bin:${env.PATH}"
    echo "var mvnHome='${mvnHome}'"
    echo "var env.PATH='${env.PATH}'"
