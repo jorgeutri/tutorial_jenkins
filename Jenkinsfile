@@ -8,14 +8,15 @@ node {
    
    // -- Configura variables
    echo 'Configurando variables'
-   def mvnHome = tool 'C:\apache-maven-3.5.2'
+   def mvnHome = tool 'M3'
    env.PATH = "${mvnHome}/bin:${env.PATH}"
    echo "var mvnHome='${mvnHome}'"
    echo "var env.PATH='${env.PATH}'"
    
    // -- Descarga código desde SCM
    echo 'Descargando código de SCM'
-   sh 'rm -rf *'
+   //--sh 'rm -rf *'
+   sh 'rd /s /q'
    checkout scm
    
    // -- Compilando
