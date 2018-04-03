@@ -16,7 +16,7 @@ node {
    // -- Descarga código desde SCM
    echo 'Descargando código de SCM'
    //--sh 'rm -rf *'
-   //bat 'rd /s /q'
+   bat 'rd /s /q C:\Users\jorge.utrilla\.jenkins\jobs\tutorial-jenkins\branches\master\workspace'
    checkout scm
    
    // -- Compilando
@@ -29,7 +29,7 @@ node {
    stage 'Test'
    echo 'Ejecutando tests'
    try{
-      sh 'mvn verify'
+      bat 'mvn verify'
       step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
    }catch(err) {
       step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
@@ -43,7 +43,7 @@ node {
    // ------------------------------------
    stage 'Instalar'
    echo 'Instala el paquete generado en el repositorio maven'
-   sh 'mvn install -Dmaven.test.skip=true'
+   bat 'mvn install -Dmaven.test.skip=true'
    
    // ------------------------------------
    // -- ETAPA: Archivar
