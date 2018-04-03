@@ -49,5 +49,5 @@ node {
    // ------------------------------------
    stage 'Archivar'
    echo 'Archiva el paquete el paquete generado en Jenkins'
-   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar, **/target/*.war', fingerprint: true])
+   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar, **/target/*.war, **/target/*.nar', fingerprint: true])
 }
