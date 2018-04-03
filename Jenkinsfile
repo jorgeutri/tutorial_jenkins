@@ -16,7 +16,7 @@ node {
    // -- Descarga código desde SCM
    echo 'Descargando código de SCM'
    //--sh 'rm -rf *'
-   bat 'rd /s /q C:\Users\jorge.utrilla\.jenkins\jobs\tutorial-jenkins\branches\master\workspace'
+   bat 'del *'
    checkout scm
    
    // -- Compilando
