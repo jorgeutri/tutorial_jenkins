@@ -36,6 +36,15 @@ node {
          currentBuild.result = 'FAILURE'
       throw err
    }
+   try{
+      bat 'mvn sonar:sonar'
+      step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
+   }catch(err) {
+      step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
+      if (currentBuild.result == 'UNSTABLE')
+         currentBuild.result = 'FAILURE'
+      throw err
+   }
    
    // ------------------------------------
    // -- ETAPA: Instalar
