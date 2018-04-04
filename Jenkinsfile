@@ -58,5 +58,6 @@ node {
    // ------------------------------------
    stage 'Archivar'
    echo 'Archiva el paquete el paquete generado en Jenkins'
+   bat 'mvn deploy'
    step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar, **/target/*.war, **/target/*.nar', fingerprint: true])
 }
