@@ -37,7 +37,7 @@ node {
       throw err
    }
    try{
-      bat 'mvn sonar:sonar'
+      bat 'mvn sonar:sonar' 
       step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
    }catch(err) {
       step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
