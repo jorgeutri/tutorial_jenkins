@@ -23,9 +23,9 @@ node {
    bat 'mvn clean compile'
    
    // ------------------------------------
-   // -- ETAPA: Test
+   // -- ETAPA: Test + SonarScanner
    // ------------------------------------
-   stage 'Test'
+   stage 'Test+Sonar'
    echo 'Ejecutando tests'
    try{
       bat 'mvn verify'
